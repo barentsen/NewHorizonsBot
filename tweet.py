@@ -47,8 +47,8 @@ def generate_tweet(jpeg, utc, desc, target, myrange, exp):
     pretty_time = time_object.datetime.strftime('%d %b %Y, %H:%M:%S UTC')
     status = ('#NewHorizons released a new image!\n'
               '⌚ {}.\n'
-              '📍 {} away from #Pluto.\n'
-              '{}'.format(pretty_time.lstrip("0"), myrange, url))
+              '📍 {} from #Pluto.\n'
+              '🔗 {}\n'.format(pretty_time.lstrip("0"), myrange, url))
     # Finally, make sure the image we are tweeting is on disk
     jpeg_prefix = 'http://pluto.jhuapl.edu/soc/Pluto-Encounter/'
     image_fn = '/tmp/newhorizonsbot.jpg'
@@ -80,8 +80,10 @@ if __name__ == '__main__':
         IMAGES_TWEETED = []
 
     images = get_latest_images()
-    for idx, filename in enumerate(images['jpegArr']):
-        if filename not in IMAGES_TWEETED:
+    # Go back-to-forth to tweet the oldest non-tweeted image first
+    for idx in range(len(images['jpegArr'])-1, -1, -1):
+        archive_filename = images['jpegArr'][idx]
+        if archive_filename not in IMAGES_TWEETED:
             status, image_fn = generate_tweet(jpeg=images['jpegArr'][idx],
                                               utc=images['UTCArr'][idx],
                                               desc=images['DescArr'][idx],
@@ -89,10 +91,10 @@ if __name__ == '__main__':
                                               myrange=images['RangeArr'][idx],
                                               exp=images['ExpArr'][idx])
             log.info(status)
-            twitter, response = post_tweet(status, image_fn)
+            #twitter, response = post_tweet(status, image_fn)
             # Remember that we tweeted this image
             history = open('images-tweeted.txt', 'a')
-            history.write(filename+'\n')
+            history.write(archive_filename+'\n')
             history.close()
             # We're done
             break
