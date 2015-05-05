@@ -7,7 +7,7 @@
 [@NewHorizonsBot](https://twitter.com/NewHorizonsBot) tweets the latest LORRI images obtained by
 [NASA's New Horizons spacecraft](http://pluto.jhuapl.edu/),
 as soon as they are posted to the
-[public image gallery](http://pluto.jhuapl.edu/soc/Pluto-Encounter/).
+[public image gallery](http://pluto.jhuapl.edu/soc/Pluto-Encounter/) hosted at Johns Hopkins University.
 
 ## Usage
 `python tweet.py`
