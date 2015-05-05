@@ -1,5 +1,5 @@
 # @NewHorizonsBot
-***Tweets the latest raw images from NASA's New Horizons spacecraft, as soon as they are released.***
+***Tweets the latest images from NASA's New Horizons spacecraft, as soon as they are released.***
 
 [![astropy](http://img.shields.io/badge/powered%20by-AstroPy-orange.svg?style=flat)](http://www.astropy.org/) [![MIT license](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](https://github.com/barentsen/NewHorizonsBot/blob/master/LICENSE) 
 
