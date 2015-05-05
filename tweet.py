@@ -91,7 +91,7 @@ if __name__ == '__main__':
                                               myrange=images['RangeArr'][idx],
                                               exp=images['ExpArr'][idx])
             log.info(status)
-            #twitter, response = post_tweet(status, image_fn)
+            twitter, response = post_tweet(status, image_fn)
             # Remember that we tweeted this image
             history = open('images-tweeted.txt', 'a')
             history.write(archive_filename+'\n')
