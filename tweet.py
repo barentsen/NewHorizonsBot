@@ -83,7 +83,9 @@ if __name__ == '__main__':
     # Go back-to-forth to tweet the oldest non-tweeted image first
     for idx in range(len(images['jpegArr'])-1, -1, -1):
         archive_filename = images['jpegArr'][idx]
-        if archive_filename not in IMAGES_TWEETED:
+        # The same image is sometimes re-posted using a different "_sci_x" suffix 
+        unique_id = archive_filename.split('_sci_')[0]
+        if unique_id not in IMAGES_TWEETED:
             status, image_fn = generate_tweet(jpeg=images['jpegArr'][idx],
                                               utc=images['UTCArr'][idx],
                                               desc=images['DescArr'][idx],
@@ -94,7 +96,7 @@ if __name__ == '__main__':
             twitter, response = post_tweet(status, image_fn)
             # Remember that we tweeted this image
             history = open('images-tweeted.txt', 'a')
-            history.write(archive_filename+'\n')
+            history.write(unique_id + '\n')
             history.close()
             # We're done
             break
