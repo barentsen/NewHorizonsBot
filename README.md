@@ -7,10 +7,11 @@
 [@NewHorizonsBot](https://twitter.com/NewHorizonsBot) tweets the latest LORRI images obtained by
 [NASA's New Horizons spacecraft](http://pluto.jhuapl.edu/),
 as soon as they are posted to the
-[public image gallery](http://pluto.jhuapl.edu/soc/Pluto-Encounter/).
+[public image gallery](http://pluto.jhuapl.edu/soc/Pluto-Encounter/) hosted at Johns Hopkins University.
 
 ## Usage
-`python tweet.py`
+To post a previously untweeted new image to Twitter, simply run `python tweet.py` at the desired frequency.
+You will need a `secrets.py` file containing your Twitter API keys in the same directory.
 
 ## Credits
 All the images tweeted are courtesy
