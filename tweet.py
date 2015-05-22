@@ -45,7 +45,7 @@ def generate_tweet(jpeg, utc, desc, target, myrange, exp):
     # Then create a pretty status message
     time_object = Time(utc.replace('<br>', ' ')[0:19])
     pretty_time = time_object.datetime.strftime('%d %b %Y, %H:%M:%S UTC')
-    status = ('#NewHorizons released a new image!\n'
+    status = ('#NewHorizons released a raw image!\n'
               '⌚ {}.\n'
               '📍 {} from #Pluto.\n'
               '🔗 {}\n'.format(pretty_time.lstrip("0"), myrange, url))
