@@ -80,7 +80,7 @@ if __name__ == '__main__':
         IMAGES_TWEETED = []
 
     images = get_latest_images()
-    # Go back-to-forth to tweet the oldest non-tweeted image first
+    # Go back-to-front to tweet the oldest non-tweeted image first.
     for idx in range(len(images['jpegArr'])-1, -1, -1):
         archive_filename = images['jpegArr'][idx]
         # The same image is sometimes re-posted using a different "_sci_x" suffix 
