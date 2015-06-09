@@ -45,7 +45,7 @@ def generate_tweet(jpeg, utc, desc, target, myrange, exp):
     # Then create a pretty status message
     time_object = Time(utc.replace('<br>', ' ')[0:19])
     pretty_time = time_object.datetime.strftime('%d %b %Y, %H:%M:%S UTC')
-    status = ('#NewHorizons released a raw image!\n'
+    status = ('#NewHorizons released a new image!\n'
               '⌚ {}.\n'
               '📍 {} from #Pluto.\n'
               '🔗 {}\n'.format(pretty_time.lstrip("0"), myrange, url))
@@ -80,8 +80,8 @@ if __name__ == '__main__':
         IMAGES_TWEETED = []
 
     images = get_latest_images()
-    # Go back-to-forth to tweet the oldest non-tweeted image first
-    for idx in range(len(images['jpegArr'])-1, -1, -1):
+    # Tweet the most recent image first; never tweet images older than the 24th
+    for idx in range(0, 24):
         archive_filename = images['jpegArr'][idx]
         # The same image is sometimes re-posted using a different "_sci_x" suffix 
         unique_id = archive_filename.split('_sci_')[0]
