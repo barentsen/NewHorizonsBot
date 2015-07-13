@@ -44,11 +44,11 @@ def generate_tweet(jpeg, utc, desc, target, myrange, exp):
     url = url.replace('<', '&lt;').replace('>', '&gt;').replace(' ', '&nbsp;')
     # Then create a pretty status message
     time_object = Time(utc.replace('<br>', ' ')[0:19])
-    pretty_time = time_object.datetime.strftime('%d %b %Y, %H:%M:%S UTC')
-    status = ('#NewHorizons released a new image!\n'
+    pretty_time = time_object.datetime.strftime('%b %d, %H:%M:%S UTC')
+    status = ('#NewHorizons released an image of {}!\n'
               '⌚ {}.\n'
               '📍 {} from #Pluto.\n'
-              '🔗 {}\n'.format(pretty_time.lstrip("0"), myrange, url))
+              '🔗 {}\n'.format(target, pretty_time.lstrip("0"), myrange, url))
     # Finally, make sure the image we are tweeting is on disk
     jpeg_prefix = 'http://pluto.jhuapl.edu/soc/Pluto-Encounter/'
     image_fn = '/tmp/newhorizonsbot.jpg'
