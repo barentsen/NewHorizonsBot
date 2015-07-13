@@ -59,3 +59,4 @@ target/
 secrets.py
 images-tweeted.txt
 sandbox
+*.bak
